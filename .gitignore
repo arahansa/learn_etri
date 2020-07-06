@@ -1,0 +1,4 @@
+*.project
+first_dao/.gradle/
+first_dao/.idea/
+first_dao/build/

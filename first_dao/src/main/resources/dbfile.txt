@@ -1,0 +1,9 @@
+create table users(
+    id varchar(10) primary key,
+    name varchar(20) not null,
+    password varchar(10) not null
+)
+
+// 아무것도 아님
+create user 'spring'@'localhost' identified by 'book';
+grant all privileges on learn_etri.* to 'spring'@'localhost';
