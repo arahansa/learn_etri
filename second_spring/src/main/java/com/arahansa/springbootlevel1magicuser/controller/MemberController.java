@@ -22,7 +22,7 @@ public class MemberController {
 
     // /member
     @GetMapping
-    public String index(Model model){
+    public String member(Model model){
         model.addAttribute("list", memberList);
         model.addAttribute("member", new Member());
         return "member";
