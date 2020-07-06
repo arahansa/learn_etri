@@ -1,14 +1,24 @@
-package springbook.user.dao;
+package springbook.user.dao.chap03_2_inter;
 
 import springbook.user.domain.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class UserDao {
+public class UserDao4 {
+
+    private ConnectionMaker connectionMaker;
+
+    public UserDao4(){
+        // 여기서 다시 으악?
+        connectionMaker = new DConnectionMaker();
+    }
 
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Class.forName("org.h2.Driver");
-        Connection c = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+        Connection c = connectionMaker.makeConnection();
+
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values (?, ?, ?)");
         ps.setString(1, user.getId());
         ps.setString(2, user.getName());
@@ -21,8 +31,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Class.forName("org.h2.Driver");
-        Connection c = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
