@@ -1,12 +1,12 @@
 package com.arahansa.springbootlevel1magicuser.testchapter;
 
+import com.arahansa.springbootlevel1magicuser.testchapter.config.AppContext;
 import com.arahansa.springbootlevel1magicuser.testchapter.service.OrderService;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import sun.awt.AppContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
