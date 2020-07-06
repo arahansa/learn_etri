@@ -4,5 +4,6 @@ import com.arahansa.springbootlevel1magicuser.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
+    Member findByUsername(String email);
 
 }

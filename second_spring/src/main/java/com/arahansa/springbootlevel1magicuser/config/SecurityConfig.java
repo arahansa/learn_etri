@@ -1,7 +1,10 @@
 package com.arahansa.springbootlevel1magicuser.config;
 
 
+import com.arahansa.springbootlevel1magicuser.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -40,19 +43,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // Inmemory Login
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.builder()
-                .username("arahansa")
-                .password(passwordEncoder().encode("1234"))
-                .roles("ADMIN").build());
-        manager.createUser(User.builder()
-                .username("tester")
-                .password(passwordEncoder().encode("1234"))
-                .roles("USER").build()
-        );
-        return manager;
+
+
+    @Autowired
+    MemberService memberService;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
     }
 
     @Bean
