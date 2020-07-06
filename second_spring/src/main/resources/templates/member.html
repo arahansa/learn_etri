@@ -23,10 +23,12 @@
     </form>
 
     <hr>
-    <div th:each="member : ${list}">
+
+    <div th:each="member : ${page.content}">
         유저 이름 : <span th:text="${member.username}"></span><br>
         유저 비밀번호 : <span th:text="${member.password}"></span>
     </div>
+    <div th:replace="~{frag/pagination :: paging('/member') }"></div>
 
 </div>
 
