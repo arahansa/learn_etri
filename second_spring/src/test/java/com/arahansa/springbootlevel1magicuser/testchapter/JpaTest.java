@@ -21,14 +21,14 @@ public class JpaTest {
     BookRepository bookRepository;
 
     @Test
-    void Book_저장하기_테스트() {
+    void Book_Save_Test() {
         Book book = Book.builder().title(BOOT_TEST_TITLE).publishedAt(LocalDateTime.now()).build();
         testEntityManager.persist(book);
         assertThat(bookRepository.getOne(book.getIdx())).isEqualTo(book);
     }
 
     @Test
-    void BookList_저장하고_검색_테스트() {
+    void BookList_Save_Search() {
 
         Book book1 = Book.builder().title(BOOT_TEST_TITLE+"1").publishedAt(LocalDateTime.now()).build();
         testEntityManager.persist(book1);
@@ -46,7 +46,7 @@ public class JpaTest {
     }
 
     @Test
-    void BookList_저장하고_삭제_테스트() {
+    void BookList_Save_Delete() {
         Book book1 = Book.builder().title(BOOT_TEST_TITLE+"1").publishedAt(LocalDateTime.now()).build();
         testEntityManager.persist(book1);
 

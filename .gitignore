@@ -7,3 +7,6 @@ second_spring/.idea/
 second_spring/.gradle/
 second_spring/build/
 second_spring/out/
+second_spring/bin/
+second_spring/.settings/
+second_spring/.classpath

@@ -1,5 +1,6 @@
 package com.arahansa.springbootlevel1magicuser.testchapter;
 
+import com.arahansa.springbootlevel1magicuser.service.MemberService;
 import com.arahansa.springbootlevel1magicuser.testchapter.controller.BookController;
 import com.arahansa.springbootlevel1magicuser.testchapter.domain.Book;
 import com.arahansa.springbootlevel1magicuser.testchapter.service.BookService;
@@ -25,6 +26,9 @@ public class BookControllerTest {
 
     @MockBean
     private BookService bookService;
+
+    @MockBean
+    MemberService memberService;
 
     @Test
     void Book_MVC_테스트() throws Exception {

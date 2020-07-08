@@ -1,10 +1,10 @@
 package com.arahansa.springbootlevel1magicuser.testchapter.miscellaneous;
 
+import com.arahansa.springbootlevel1magicuser.testchapter.config.AppContext;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import sun.awt.AppContext;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,10 +21,6 @@ public class SpringJunitConfigTest {
     @Autowired
     ApplicationContext applicationContext;
 
-    /*
-    @Autowired
-    HelloService helloService;
-    */
 
     @Test
     void name() {
